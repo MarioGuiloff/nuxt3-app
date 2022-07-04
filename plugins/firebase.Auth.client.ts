@@ -6,5 +6,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     apiKey: config.FIREBASE_API_KEY,
   };
   const app = initializeApp(firebaseConfig);
-  console.log(app);
+
+  initUser();
 });
