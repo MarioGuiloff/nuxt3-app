@@ -2,20 +2,23 @@
   <div>
     <button class="button" @click="signIn">Sign in</button>
     <button class="button" @click="signOut">Sign out</button>
+    <pre>
+      {{ credentials }}
+    </pre>
   </div>
 </template>
 
 <script setup>
+const credentials = ref();
+
 const signIn = async () => {
   const email = "email@email.com";
   const password = "password";
-  const credentials = await signInUser(email, password);
-  console.log(credentials);
+  credentials.value = await signInUser(email, password);
 };
 
 const signOut = async () => {
-  const result = await signOutUser();
-  console.log(result);
+  credentials.value = await signOutUser();
 };
 </script>
 
